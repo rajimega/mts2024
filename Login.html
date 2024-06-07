@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>மேகம் திரை கொண்ட சாஸ்தா அருணாபேரி </title>
+    <style>
+        @media print {
+            title {
+                display: none; /* Hide title element when printing */
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d6dcc3;
+        }
+
+        #divAccounts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        header {
+            background-color: #26b6af;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+            /* Adjust content padding as needed */
+        }
+
+
+        .a4-div {
+            width: 210mm;
+            height: 297mm;
+            margin: 20px auto;
+            padding: 20mm;
+            box-sizing: border-box;
+            font-size: smaller;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            text-align: left;
+            height: 20px
+        }
+
+        #tblHeader td {
+            border: none;
+        }
+
+        th:nth-child(5) { /* Example: Third column */
+            min-width: 100px;
+        }
+
+        .container {
+            margin: 50px auto;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+            .form-group label {
+                flex: 1;
+                margin-right: 10px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                flex: 2;
+                padding: 8px;
+                /*background-color: #007bff;*/
+                color: #008000;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .form-group button {
+                flex: 1;
+                padding: 8px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        .header-text {
+            flex-grow: 1;
+        }
+
+            .header-text h1 {
+                margin: 0;
+                font-size: 24px;
+            }
+
+            .header-text p {
+                margin: 5px 0 0;
+                font-size: 16px;
+            }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #26b6af;
+        }
+
+        .header-image {
+            width: 100px; /* Adjust the size as needed */
+            height: 100px; /* Adjust the size as needed */
+            border-radius: 50%; /* Optional: make the image circular */
+            margin-right: 20px; /* Space between the image and the text */
+        }
+    </style>
+
+</head>
+<body>
+    <header class="header">
+        <img src="Sastha.jpg" class="header-image" />
+        <div class="header-text">
+            <h1>மேகம் திரை கொண்ட சாஸ்தா அருணாபேரி</h1>
+        </div>
+
+    </header>
+    <!--<div class="container">
+
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td>
+                        <input type="file" id="fileInput" name="fileInput" />
+                    </td>
+                    <td>
+                        <input id="btmPrint" type="button" style="background-color: #2de302f0; color: #FFF" value="வரவு மற்றும் செலவு" onclick="displayGrid()" />
+                    </td>
+
+                    <td>
+                        <input id="btmPrint" type="button" style="background-color: #ff130094; color: #FFF" value="செலவு" onclick="displayGrid('வகை','செலவு')" />
+                    </td>
+                    <td>
+                        <input id="btmPrint" type="button" style="background-color: #2de302f0;color:#FFF" value="வரவு" onclick="displayGrid('வகை','வரவு')" />
+                    </td>
+                    <td>
+                        <input id="btmPrint" type="button" style="background-color: #00FF00" value="Print" onclick="printDiv()" />
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+        </div>
+
+    </div>
+    <div id="divAccounts"></div>-->
+    <!--<footer>
+        <p>Footer &copy; 2024</p>
+    </footer>-->
+    <form class="container" id="contactForm">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Email </label>
+                    <input type="text" class="form-control" id="email" placeholder="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label> PassWord </label>
+                    <input type="password" class="form-control" id="password" placeholder="password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary"
+                    style="margin-left: 40px; margin-bottom: 10px;width:80%;text-align:center">
+                Submit
+            </button>
+        </div>
+    </form>
+    <div id="dataContainer"></div>
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB2kwNXjuJir3uZd6WJJep7xmzCqq6oQTg",
+            authDomain: "temple-424209.firebaseapp.com",
+            databaseURL: "https://temple-424209-default-rtdb.firebaseio.com/",
+            projectId: "temple-424209",
+            storageBucket: "temple-424209.appspot.com",
+            messagingSenderId: "996589537878",
+            appId: "1:996589537878:web:d6096d2b6c63a961a709f7",
+            measurementId: "G-GP8YST14ZT"
+        };
+        const app = firebase.initializeApp(firebaseConfig);
+        let tblUser = firebase.database().ref('User');
+
+        document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+           
+            readData();
+            //let tblUserRef = tblUser.push();
+            //tblUserRef.set({
+            //    Email: email,
+            //    Password: password
+            //});
+            document.getElementById('contactForm').reset();
+        }
+        function readData() {
+            tblUser.on('value', (snapshot) => {
+                const data = snapshot.val();
+                var user = filterData(data);
+                if (user == "") {
+                    alert("login failed.")
+                }
+                else {
+                    alert("login Success.")
+                }
+                //displayData(data);
+            });
+        }
+        // Function to filter data (e.g., users with age greater than a certain value)
+        function filterData(data) {
+            const user = {};
+            if (!data) return filtered;
+            var email = getInputVal("email");
+            var password = getInputVal("password");
+           
+            for (const key in data) {
+                if (data[key].UserName == email && data[key].Password == password) {
+                    user = data[key];
+                }
+            }
+            return user;
+        }
+        // Function to display data on the webpage
+        function displayData(data) {
+            const dataContainer = document.getElementById('dataContainer');
+            dataContainer.innerHTML = JSON.stringify(data, null, 2);
+        }
+        // Function to get form values
+        function getInputVal(id) {
+            return document.getElementById(id).value;
+        }
+
+    </script>
+</body>
+</html>
